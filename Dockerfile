@@ -10,8 +10,8 @@ RUN apk update --no-cache \
             openssh-client \
             rsync
 
-RUN curl -L https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar > /usr/local/bin/deployer \
-    && chmod +x /usr/local/bin/deployer
+RUN curl -L https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar > /usr/local/bin/dep \
+    && chmod +x /usr/local/bin/dep
 
 # Change default shell to bash (needed for conveniently adding an ssh key)
 RUN sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
