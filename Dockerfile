@@ -9,10 +9,11 @@ RUN apk update --no-cache \
             bash \
             openssh-client \
             rsync \
-            git
+            git zip
 
 RUN curl -L https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar > /usr/local/bin/dep \
     && chmod +x /usr/local/bin/dep
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Change default shell to bash (needed for conveniently adding an ssh key)
 RUN sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
