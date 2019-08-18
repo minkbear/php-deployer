@@ -9,7 +9,8 @@ RUN apk update --no-cache \
             bash \
             openssh-client \
             rsync \
-            git zip
+            git zip \
+            php7-gd
 
 RUN curl -L https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar > /usr/local/bin/dep \
     && chmod +x /usr/local/bin/dep
