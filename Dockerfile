@@ -11,7 +11,8 @@ RUN apk update --no-cache \
             rsync \
             git zip
 
-RUN curl -LO https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar > /usr/local/bin/dep \
+RUN curl -LO https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar \
+    && mv deployer.phar /usr/local/bin/dep \
     && chmod +x /usr/local/bin/dep
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
